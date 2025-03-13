@@ -4,6 +4,8 @@ videoFilePath = 'C:\Users\ameyo\OneDrive\Desktop\Research\Data\Flow through elec
 outputFolder = 'C:\Users\ameyo\OneDrive\Desktop\Research\Data\Flow through electrolyzer\Cell v2 - bigger windows\2025-02-21-Ni-Nimesh-0p5Na2SO4-10mlmin-new_cell_footagealignment\Bubble Analysis'; % Replace with your output folder path
 DataAnalysisFolder = 'C:\Users\ameyo\OneDrive\Desktop\Research\Data\Flow through electrolyzer\Cell v2 - bigger windows\2025-02-21-Ni-Nimesh-0p5Na2SO4-10mlmin-new_cell_footagealignment\Data Analysis';
 
+# Hola
+
 if ~exist(outputFolder, 'dir')
     mkdir(outputFolder);
 end
