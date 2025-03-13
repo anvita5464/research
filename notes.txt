@@ -1,0 +1,2 @@
+Goal: Calculate volume of bubbles to find Gas Evolution Efficiency 
+Calculate residence time 
