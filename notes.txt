@@ -1,2 +1,6 @@
 Goal: Calculate volume of bubbles to find Gas Evolution Efficiency 
 Calculate residence time 
+
+s0_Parameter_Check: Used for checking parameters that will be used in Bubble Detection algorithm (e.g. crop size, binarization threshold etc)
+s1_Bubble_Detection: Bubble Detection (using regionProps) and Tracking (using multiObject tracker)
+s1a_Bubble_Detection: Tried to implement a different tracking algorithm and didn't work lol ignore this for now
