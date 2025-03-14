@@ -31,7 +31,6 @@ thresh =0.15;
 
 for frameNum = 1:numFrames
     frame = read(video, frameNum);
-    i = frameNum;
 
     % ----- Check Crop ----- %
    
@@ -52,40 +51,6 @@ for frameNum = 1:numFrames
     binary_frame = imbinarize(gray_frame, thresh); 
     binary_frame = imcrop(binary_frame, cropRect);
     % imshow(binary_frame)
-
-    % ---- Regionprops method ----- %
-    labeledImage = bwlabel(binary_frame);
-    stats = regionprops(labeledImage, 'Centroid', 'MajorAxisLength','MinorAxisLength','Area', 'BoundingBox');
-
-    centers = cat(1, stats.Centroid);
-    bboxes = cat(1, stats.BoundingBox);
-    MajorAxisLength = [stats.MajorAxisLength].';
-    MinorAxisLength = [stats.MinorAxisLength].';
-    radii = (mean([MajorAxisLength MinorAxisLength], 2)/2);
-    area = [stats.Area].';
-    volume = (sum((4*pi*radii.^3)/3)).*(length_per_pixel^3);
-
-    centroid_data{i} = centers;
-    radii_data{i} = radii;
-    area_data{i} = area;
-    volume_data{i} = volume;
-
-    % ---- Visualize image ----% 
-    imshow(imcrop(read(video, i), cropRect))
-    hold on;
-    viscircles(centers, radii,'Color','b');
-    hold off
-
-    % 
-    % visualization_subfolder = 'Bubble Tracking Visualization';
-    % visualization_subfolder = fullfile(DataAnalysisFolder, visualization_subfolder);  
-    % 
-    % if ~exist(visualization_subfolder, 'dir')
-    %     mkdir(visualization_subfolder);
-    % end
-    % 
-    % saveas(gcf, fullfile(visualization_subfolder, sprintf('0p5_Na2SO4_10mlmin_CA_3V_500fps_%d.png', frameNum)));
-
 
 
 end
